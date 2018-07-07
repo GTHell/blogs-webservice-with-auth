@@ -5,7 +5,6 @@
       dark
       fixed
       app
-      clipped-right
     >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>STN</v-toolbar-title>
@@ -14,6 +13,7 @@
     <v-navigation-drawer
       fixed
       v-model="drawer"
+      clipped
       app
     >
       <v-list dense>
