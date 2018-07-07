@@ -1,14 +1,13 @@
 <template>
 
 <div>
-  <v-container>
-    <v-layout>
+  <v-container fluid grid-list-sm>
+    <v-layout row wrap>
       <v-flex xs12>
         <h1>Posts</h1>
       </v-flex>
     </v-layout>
-    <v-layout>
-    </v-layout>
+      <header-item></header-item>
   </v-container>
 </div>
     <!-- <div v-for="post in posts">
@@ -21,8 +20,10 @@
 
 <script>
 import PostsService from "@/services/PostsService";
+import Header from "./Header";
+
 export default {
-  name: "posts",
+  name: "home",
   data() {
     return {
       posts: []
@@ -36,6 +37,9 @@ export default {
       const response = await PostsService.fetchPosts();
       this.posts = response.data;
     }
+  },
+  components: {
+    "header-item": Header
   }
 };
 </script>
