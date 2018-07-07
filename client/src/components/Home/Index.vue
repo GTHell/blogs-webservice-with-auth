@@ -1,26 +1,55 @@
 <template>
-
 <div>
-  <v-container fluid grid-list-sm>
+  <div class="category-content">
+  <v-container grid-list-md>
+    <h1 class="category">Hello world</h1>
     <v-layout row wrap>
-      <v-flex xs12>
-        <h1>Posts</h1>
+      <v-flex d-flex xs12 sm6>
+        <article-item/>
+      </v-flex>
+      <v-flex d-flex xs12 sm3>
+        <v-layout row wrap>
+          <v-flex d-flex>
+            <article-item/>
+          </v-flex>
+          <v-flex d-flex>
+            <article-item/>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex d-flex xs12 sm3>
+        <v-layout row wrap>
+          <v-flex d-flex>
+            <article-item/>
+          </v-flex>
+          <v-flex d-flex>
+            <article-item/>
+          </v-flex>
+        </v-layout>
       </v-flex>
     </v-layout>
-      <header-item></header-item>
   </v-container>
+  </div>
+  <div class="category-content">
+  <v-container grid-list-md>
+    <h1 class="category">Hello world</h1>
+    <v-layout row wrap>
+      <v-flex d-flex xs12 sm6>
+        <article-item/>
+      </v-flex>
+      <v-flex d-flex xs12 sm6>
+        <article-item/>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  </div>
 </div>
-    <!-- <div v-for="post in posts">
-      <p>
-        <span><b>{{ post.title }}</b></span><br />
-        <span>{{ post.description }}</span>
-      </p>
-    </div> -->
 </template>
 
 <script>
-import PostsService from "@/services/PostsService";
-import Header from "./Header";
+import PostsService from "@/services/PostsService"
+import Header from "./Header"
+import Article from "./Article"
 
 export default {
   name: "home",
@@ -39,7 +68,18 @@ export default {
     }
   },
   components: {
-    "header-item": Header
+    "header-item": Header,
+    "article-item": Article
   }
 };
 </script>
+
+<style scoped>
+.category {
+  background-color: black;
+  padding-left: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+}
+</style>

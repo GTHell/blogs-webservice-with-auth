@@ -1,6 +1,5 @@
 <template>
- <nav>
- <v-app id="inspire">
+ <v-app id="inspire" tag="nav">
     <v-toolbar
       color="black"
       dark
@@ -37,7 +36,6 @@
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
- </nav>
 </template>
 
 <script>
