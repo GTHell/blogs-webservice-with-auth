@@ -4,28 +4,17 @@
   <v-container grid-list-md>
     <h1 class="category">Hello world</h1>
     <v-layout row wrap>
-      <v-flex d-flex xs12 sm6>
+      <v-flex d-flex xs12 sm3>
         <article-item/>
       </v-flex>
       <v-flex d-flex xs12 sm3>
-        <v-layout row wrap>
-          <v-flex d-flex>
-            <article-item/>
-          </v-flex>
-          <v-flex d-flex>
-            <article-item/>
-          </v-flex>
-        </v-layout>
+        <article-item/>
       </v-flex>
       <v-flex d-flex xs12 sm3>
-        <v-layout row wrap>
-          <v-flex d-flex>
+        <article-item/>
+      </v-flex>
+      <v-flex d-flex xs12 sm3>
             <article-item/>
-          </v-flex>
-          <v-flex d-flex>
-            <article-item/>
-          </v-flex>
-        </v-layout>
       </v-flex>
     </v-layout>
   </v-container>

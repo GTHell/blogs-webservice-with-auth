@@ -15,14 +15,24 @@
       v-model="drawer"
       clipped
       app
+      :width="400"
     >
       <v-list dense>
-        <v-list-tile>
+        <v-list-tile @click.stop="toRoute('home')">
           <v-list-tile-action>
-            <v-icon>exit_to_app</v-icon>
+            <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Open Temporary Drawer</v-list-tile-title>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-divider></v-divider>
+        <v-list-tile @click.stop="toRoute('login')">
+          <v-list-tile-action>
+            <v-icon>account_box</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Login</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -42,9 +52,13 @@
 export default {
   name: "nav-item",
   data: () => ({
-    drawer: null
+    drawer: false
   }),
-
+  methods: {
+    toRoute: function(path) {
+      this.$router.push({name: path});
+    }
+  },
   props: {
     source: String
   }
