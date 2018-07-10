@@ -1,19 +1,25 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('blog_api', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-  operatorsAliases: false,
+const fs = require('fs');
 
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
+module.exports = {
+  development: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOSTNAME,
+    dialect: 'mysql'
   },
-
-});
-
-module.exports = sequelize
-
-// Or you can simply use a connection uri
-// const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
+  test: {
+    username: 'root',
+    password: '',
+    database: 'blog',
+    host: '127.0.0.1',
+    dialect: 'mysql'
+  },
+  production: {
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOSTNAME,
+    dialect: 'mysql'
+  }
+};
