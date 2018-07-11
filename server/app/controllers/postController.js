@@ -1,13 +1,15 @@
 const Post = require('../models/post')
+const models = require('../models');
 
 // display all post
 exports.post_list = function (req, res) {
-  res.send("not implemented yet")
+  models.Post.findAll().then(posts => res.json(posts))
 }
 
 // Get detail post
 exports.post_detail = function (req, res) {
-  res.send("not implemented yet")
+  const id = req.params.id
+  models.Post.findById(id).then(post => res.json(post))
 }
 
 // Create Post

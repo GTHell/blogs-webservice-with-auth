@@ -15,25 +15,17 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', function(req, res){
-sequelize
-    .authenticate()
-    .then(() => {
-        console.log('Connection has been established successfully.');
-    })
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+app.get('/', function (req, res) {
     res.send('success')
 })
 
 app.use('/user', user)
 app.use('/post', post)
 
-app.get('/posts', (req, res)=> {
+app.get('/posts', (req, res) => {
     res.send([{
-	title: 'Hello world',
-	description: 'Hi how is it going?'
+        title: 'Hello world',
+        description: 'Hi how is it going?'
     }])
 })
 

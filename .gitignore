@@ -19,3 +19,5 @@ server/.vscode
 *.njsproj
 *.sln
 
+# Server
+server/.env
