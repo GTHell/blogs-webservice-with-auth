@@ -12,12 +12,23 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Posts', [{
-      title: 'Testing world',
-      content: 'Helll world this is the best thing ever happen to ma lafe',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }], {})
+    queryInterface.bulkInsert('PostCategories', [
+      {
+        name: 'General',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Technology',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Entertainment',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {})
   },
 
   down: (queryInterface, Sequelize) => {
@@ -28,6 +39,5 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
-   queryInterface.bulkDelete('Posts', null, {})
   }
 };
