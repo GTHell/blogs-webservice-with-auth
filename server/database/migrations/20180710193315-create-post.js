@@ -14,6 +14,9 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
+      photoUrl: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER
       },

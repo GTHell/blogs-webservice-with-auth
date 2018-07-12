@@ -17,16 +17,21 @@ app.use(cors())
 
 app.get('/', function (req, res) {
   var model = require('../app/models')
-  var data = model.Post.find({
+  // var data = model.Post.find({
+  //   include: [{
+  //     model: model.Tag,
+  //     as: 'tags',
+  //     required: false,
+  //     attributes: ['id', 'name'],
+  //     through: {attributes: []}
+  //   }],
+  //   where: {id: 1}
+  // }).then(response => res.send(response))
+  model.Post.findById(1, {
     include: [{
-      model: model.Tag,
-      as: 'tags',
-      required: false,
-      attributes: ['id', 'name'],
-      through: {attributes: []}
-    }],
-    where: {id: 1}
-  }).then(response => res.send(response))
+      model: model.Category
+    }]
+  }).then(data => res.send(data))
   // res.json(data)
 })
 

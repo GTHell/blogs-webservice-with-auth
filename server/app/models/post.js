@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       as: 'tags',
       foreignKey: 'postId'
     });
+    Post.belongsTo(models.Category, {
+      foreignKey: 'categoryId'
+    })
   };
   return Post;
 };
