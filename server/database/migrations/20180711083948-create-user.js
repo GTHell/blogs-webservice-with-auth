@@ -8,17 +8,33 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userName: {
+        type: Sequelize.STRING,
+        notEmpty: true
+      },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
+        // notEmpty: true
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
+        // notEmpty: true
       },
       email: {
         type: Sequelize.STRING
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      last_login: {
+        type: Sequelize.DATE
+      },
+      status: {
+        type: Sequelize.ENUM('active', 'inactive'),
+        defaultValue: 'active'
       },
       createdAt: {
         allowNull: false,

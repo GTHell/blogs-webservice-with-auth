@@ -13,9 +13,10 @@ module.exports = {
       }], {});
     */
     queryInterface.bulkInsert('Users', [{
+      userName: 'GTHell',
       firstName: 'sith',
       lastName: 'samin',
-      email: 'lom',
+      email: 'l@l.com',
       password: '123123'
     }], {})
   },

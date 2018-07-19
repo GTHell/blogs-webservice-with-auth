@@ -1,7 +1,10 @@
-import Api from '@/services/Api'
+import axios from './Api'
 
 export default {
-    fetchPosts () {
-	return Api().get('posts')
-    }
+  fetchPosts() {
+    return axios().get('post')
+  },
+  fetchPost(id) {
+    return axios().get('/post/'+id)
+  }
 }
