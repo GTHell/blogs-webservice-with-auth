@@ -2,7 +2,9 @@
 module.exports = (sequelize, DataTypes) => {
   var Post = sequelize.define('Post', {
     title: DataTypes.STRING,
-    content: DataTypes.TEXT
+    content: DataTypes.TEXT,
+    categoryId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
   }, {});
   Post.associate = function(models) {
     // associations can be defined here
