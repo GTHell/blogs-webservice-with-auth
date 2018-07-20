@@ -13,29 +13,36 @@ exports.post_detail = function (req, res) {
 
 // Create Post
 exports.post_create_post = function (req, res) {
-  Post.create({
-    title: 'test',
-    content: 'hello world no 2',
-    userId: '1'
-  }).then(post => {
+  const createPost = req.body
+
+  Post.create(createPost)
+  .then(post => {
     res.status(200).json(post)
   }).catch(err => {
-    res.status(500).json({message: 'something wrong'})
+    res.status(501).json({message: 'something wrong'})
   })
 }
 
 // Delete post
 exports.post_delete_post = function (req, res) {
   const id = req.params.id
-  Post.findById(id)
+  Post.destroy({
+    where: {id}
+  })
   .then(post => {
     post.destroy()
-    res.status(200).json({message: 'post deleted'})
+    res.status(200).json({message: 'post deleted', post})
   })
-  .catch(err => res.status(400).json(err))
+  .catch(err => res.status(501).json(err))
 }
 
 // Update post
 exports.post_update_post = function (req, res) {
-  res.send("not implemented yet")
+  const id = req.params.id
+  const updates = req.body
+
+  Post.findById(id)
+  .then(post => post.updateAttributes(updates))
+  .then(updatedPost => res.status(200).json(updatedPost))
+  .catch(err => res.status(501).json(err))
 }
